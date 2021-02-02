@@ -1,0 +1,57 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Expert index
+{% endblock %}
+
+{% block body %}
+	<h1>Expert index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>LastName</th>
+				<th>Email</th>
+				<th>Profession</th>
+				<th>NumeroSIRET</th>
+				<th>Address</th>
+				<th>Postal_code</th>
+				<th>City</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+
+				<tr>
+					<td>{{ user.id }}</td>
+					<td>{{ user.firstName }}</td>
+					<td>{{ user.lastName }}</td>
+					<td>{{ user.email }}</td>
+
+				</tr>
+			{% endfor %}
+
+			{% for expert in experts %}
+				<tr>
+					<td>{{ expert.profession }}</td>
+					<td>{{ expert.numeroSIRET }}</td>
+					<td>{{ expert.address }}</td>
+					<td>{{ expert.postalCode }}</td>
+					<td>{{ expert.city }}</td>
+				</tr>
+
+
+			{% endfor %}
+
+			{# {% for expert in experts %}
+																									<td>
+																										<a href="{{ path('admin_expert_show', {'id': expert.id}) }}">show</a>
+																										<a href="{{ path('admin_expert_edit', {'id': expert.id}) }}">edit</a>
+																									</td>
+																								{% endfor %} #}
+		</tbody>
+	</tr>
+
+</tbody></table><a href="{{ path('admin_expert_new') }}">Create new</a>{% endblock %}

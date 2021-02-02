@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur ExpertDispo
+{% endblock %}
+
+{% block body %}
+	<div class="body-index">
+		<h1 class="text-center m-5">Bienvenue sur ExpertDispo</h1>
+		<div class='custom-container d-flex justify-content-around'>
+			<div class="">
+				<p>Êtes vous déjà inscris comme particulier?<a href="{{ path('app_login') }}">Cliquez ici</a>
+				</p>
+				<p>S'incrire en temps que particulier<a href="{{ path('app_register') }}">Cliquez ici</a>
+				</p>
+			</div>
+
+			<div class="">
+				<p>Êtes vous déjà inscris comme expert?<a href="{{ path('app_login') }}">Cliquez ici</a>
+				</p>
+				<p>S'incrire en temps qu'expert<a href="{{ path('expert_app_register') }}">Cliquez ici</a>
+				</p>
+			</div>
+
+		</div>
+	</div>
+
+{% endblock %}

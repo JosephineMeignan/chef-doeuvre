@@ -1,0 +1,20 @@
+{% extends 'user/layout.html.twig' %}
+
+{% block title %}Theme
+{% endblock %}
+
+{% block body %}
+
+	<h1>{{ theme.name }}</h1>
+
+	{# {% for expert in experts %}
+	
+			<p>{{ expert.firstName}}</p>
+	
+		{% endfor %} #}
+
+
+	<a href="{{ path('home') }}">back to list</a>
+
+
+{% endblock %}

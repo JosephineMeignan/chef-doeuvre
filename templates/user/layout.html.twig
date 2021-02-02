@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}
+	{% include 'user/navbar.html.twig' %}
+{% endblock %}
+
+{% block body %}
+	<div class="">
+		<div class="">
+			{% block content %}{% endblock %}
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

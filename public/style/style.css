@@ -1,0 +1,10 @@
+body{
+    background-image: url(../image/body-index.jpg);
+    background-size: cover;
+}
+
+#navbar {
+    background-image: url(../image/mandalagris.png);
+    background-size: cover;
+    margin: 4em;
+}

@@ -1,0 +1,14 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}New Expert
+{% endblock %}
+
+{% block body %}
+	<h1>Create new Expert</h1>
+	<form>
+
+
+		{{ include('admin/expert/_form.html.twig') }}
+
+		<a href="{{ path('expert_index') }}">back to list</a>
+	{% endblock %}
