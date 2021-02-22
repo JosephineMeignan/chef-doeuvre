@@ -4,8 +4,12 @@ namespace App\Controller\user;
 
 use App\Entity\Theme;
 use App\Entity\Expert;
+use App\Entity\User;
 use App\Repository\ThemeRepository;
 use App\Repository\ExpertRepository;
+use App\Repository\UserRepository;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,14 +30,5 @@ class DefaultController extends AbstractController
         ]);
     }
 
-        /**
-     * @Route("/{id}", name="user_show", methods={"GET"})
-     */
-    public function userShow(Theme $theme, Expert $expert): Response
-    {
-        return $this->render('user/show.html.twig', [
-            'theme' => $theme,
-            'expert' => $expert,
-        ]);
-    }
+
 }

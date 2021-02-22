@@ -8,7 +8,7 @@
 		<h2 class="text-center m-5">Dans quel domaine pouvons-nous vous aider?</h2>
 		<div class="row row-cols-1 row-cols-md-4 g-4">
 			{% for theme in themes %}
-				<a href="{{ path('user_show' , {'id': theme.id}) }}">
+				<a href="{{ path('theme_show' , {'id': theme.id}) }}">
 					<div class="col m-4">
 						<div class="card" style="width: 14rem; height: 7rem;">
 							<div class="card-body">

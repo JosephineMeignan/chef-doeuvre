@@ -19,9 +19,14 @@
 		</tbody>
 	</table>
 
-	<a href="{{ path('admin_theme_index') }}">back to list</a>
+	<div class="d-flex flex-row bd-highlight mb-3">
+		<div class="p-2 bd-highlight">
+			<a href="{{ path('admin_theme_edit', {'id': theme.id}) }}">edit</a>
+			{{ include('admin/theme/_delete_form.html.twig') }}
+		</div>
+	</div>
 
-	<a href="{{ path('admin_theme_edit', {'id': theme.id}) }}">edit</a>
 
-	{{ include('admin/theme/_delete_form.html.twig') }}
+	<a href="{{ path('admin_theme_index') }}">Retour</a>
+
 {% endblock %}

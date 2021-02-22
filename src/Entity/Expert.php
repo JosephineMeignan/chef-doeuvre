@@ -44,6 +44,16 @@ class Expert
      */
     private $city;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Echange::class, mappedBy="expert")
+     */
+    private $echanges;
+
+    public function __construct()
+    {
+        $this->echanges = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +115,36 @@ class Expert
     public function setCity(string $city): self
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Echange[]
+     */
+    public function getEchanges(): Collection
+    {
+        return $this->echanges;
+    }
+
+    public function addEchange(Echange $echange): self
+    {
+        if (!$this->echanges->contains($echange)) {
+            $this->echanges[] = $echange;
+            $echange->setExpert($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEchange(Echange $echange): self
+    {
+        if ($this->echanges->removeElement($echange)) {
+            // set the owning side to null (unless already changed)
+            if ($echange->getExpert() === $this) {
+                $echange->setExpert(null);
+            }
+        }
 
         return $this;
     }

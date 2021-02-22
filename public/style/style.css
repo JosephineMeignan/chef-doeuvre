@@ -1,10 +1,16 @@
-body{
+.body-index{
     background-image: url(../image/body-index.jpg);
     background-size: cover;
+    height: 100vh;
+    width: 100vw;
 }
 
 #navbar {
-    background-image: url(../image/mandalagris.png);
-    background-size: cover;
-    margin: 4em;
+    width: 100vw;
+    height: 15vh;
+
+}
+
+.form-row {
+    margin: 10%;
 }

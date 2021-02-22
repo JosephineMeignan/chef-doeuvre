@@ -7,8 +7,9 @@
 			{% endblock %}
 		</title>
 		{% block stylesheets %}
-			<link rel="stylesheet" href="style/style.css">
-			<link rel='stylesheet' href='https://bootswatch.com/4/flatly/bootstrap.min.css'>
+
+			<link rel="stylesheet" href="{{ asset('style/style.css') }}">
+			<link rel='stylesheet' href='{{ asset('https://bootswatch.com/4/flatly/bootstrap.min.css') }} '>
 		{% endblock %}
 	</head>
 	<body>

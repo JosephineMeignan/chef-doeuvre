@@ -36,13 +36,20 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
-    // public function findByExpert() 
-    // {
-    //         return $this->createQueryBuilder('u')
-    //         ->orderBy('u.roles', 'ASC')
-    //         ->where('u.roles LIKE :role')
-    //         ->setParameter('role', '%"'.'ROLE_EXPERT'.'"%');
-    // }
+    public function findByExpert($roleExpert) 
+    {
+            // return $this->createQueryBuilder('userExpert')
+            // ->orderBy('u.roles', 'ASC')
+            // ->where('u.roles LIKE :role')
+            // ->setParameter('role', 'ROLE_EXPERT');
+
+                return $this->createQueryBuilder('u')
+                ->orderBy('u.roles', 'ASC')
+                ->where('u.roles LIKE :role')
+                ->setParameter('role', '%"'. $roleExpert .'"%');
+              
+                
+    }
 
 
     // /**

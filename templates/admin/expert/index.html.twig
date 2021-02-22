@@ -23,35 +23,18 @@
 		</thead>
 		<tbody>
 			{% for user in users %}
-
 				<tr>
 					<td>{{ user.id }}</td>
 					<td>{{ user.firstName }}</td>
 					<td>{{ user.lastName }}</td>
 					<td>{{ user.email }}</td>
-
+					<td>{{ user.expert.profession }}</td>
+					<td>{{ user.expert.numeroSIRET }}</td>
+					<td>{{ user.expert.address }}</td>
+					<td>{{ user.expert.postalCode }}</td>
+					<td>{{ user.expert.city }}</td>
 				</tr>
 			{% endfor %}
-
-			{% for expert in experts %}
-				<tr>
-					<td>{{ expert.profession }}</td>
-					<td>{{ expert.numeroSIRET }}</td>
-					<td>{{ expert.address }}</td>
-					<td>{{ expert.postalCode }}</td>
-					<td>{{ expert.city }}</td>
-				</tr>
-
-
-			{% endfor %}
-
-			{# {% for expert in experts %}
-																									<td>
-																										<a href="{{ path('admin_expert_show', {'id': expert.id}) }}">show</a>
-																										<a href="{{ path('admin_expert_edit', {'id': expert.id}) }}">edit</a>
-																									</td>
-																								{% endfor %} #}
 		</tbody>
-	</tr>
-
-</tbody></table><a href="{{ path('admin_expert_new') }}">Create new</a>{% endblock %}
+	</table>
+{% endblock %}

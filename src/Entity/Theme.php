@@ -29,9 +29,15 @@ class Theme
      */
     private $users;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Echange::class, mappedBy="theme", orphanRemoval=true)
+     */
+    private $echanges;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->echanges = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -74,6 +80,36 @@ class Theme
     {
         if ($this->users->removeElement($user)) {
             $user->removeTheme($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Echange[]
+     */
+    public function getEchanges(): Collection
+    {
+        return $this->echanges;
+    }
+
+    public function addEchange(Echange $echange): self
+    {
+        if (!$this->echanges->contains($echange)) {
+            $this->echanges[] = $echange;
+            $echange->setTheme($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEchange(Echange $echange): self
+    {
+        if ($this->echanges->removeElement($echange)) {
+            // set the owning side to null (unless already changed)
+            if ($echange->getTheme() === $this) {
+                $echange->setTheme(null);
+            }
         }
 
         return $this;

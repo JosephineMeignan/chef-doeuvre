@@ -23,18 +23,21 @@ class ExpertType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstName')
-            ->add('lastName')
+            ->add('firstName', TextType::class, ['label' => 'Prénom'])
+            ->add('lastName', TextType::class, ['label' => 'Nom'])
             ->add('profession', TextType::class, [
                 'mapped'=>false,
+                'label' => 'Profession',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a profession',
-                    ]),
+                
+                ]),
             ]])
             ->add('theme', EntityType::class, [
                 'expanded' => true,
                 'multiple' => true,
+                'label' => 'Dans quel domaine pouvez vous nos utilistaeur?',
                 'by_reference' => false,
                 'class' =>Theme::class,
                 'choice_label' => 'name'
@@ -45,6 +48,7 @@ class ExpertType extends AbstractType
             // ])
             ->add('numeroSIRET', TextType::class, [
                 'mapped'=>false,
+                'label' => 'Votre numéro SIRET',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter your SIRET number',
@@ -52,6 +56,7 @@ class ExpertType extends AbstractType
             ]])
             ->add('address', TextType::class, [
                 'mapped'=>false,
+                'label' => 'Votre adresse',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter your address',
@@ -59,6 +64,7 @@ class ExpertType extends AbstractType
             ]])
             ->add('postal_code', TextType::class, [
                 'mapped'=>false,
+                'label' => 'Votre code postal',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter your postale code',
@@ -66,12 +72,13 @@ class ExpertType extends AbstractType
             ]])
             ->add('city', TextType::class, [
                 'mapped'=>false,
+                'label' => 'Votre ville',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter your city',
                     ]),            
             ]])
-            ->add('email')
+            ->add('email', TextType::class, ['label' => 'Prénom'])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller

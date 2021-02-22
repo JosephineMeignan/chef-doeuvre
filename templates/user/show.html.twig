@@ -5,13 +5,21 @@
 
 {% block body %}
 
-	<h1>{{ theme.name }}</h1>
+	<h1 class="text-center">{{ theme.name }}</h1>
 
-	{# {% for expert in experts %}
-	
-			<p>{{ expert.firstName}}</p>
-	
-		{% endfor %} #}
+
+	{{ form_start(echangeForm) }}
+	<p>Voici nos experts capable de vous aider:</p>
+
+
+	{{ form_row(echangeForm.user) }}
+	{{ form_row(echangeForm.content) }}
+
+	{# {{ form_row(registrationForm.profession) }} #}
+
+
+	<button type="submit" class="btn">Envoyer</button>
+	{{ form_end(echangeForm) }}
 
 
 	<a href="{{ path('home') }}">back to list</a>

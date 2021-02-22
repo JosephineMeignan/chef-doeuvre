@@ -22,13 +22,24 @@ class ExpertController extends AbstractController
      */
     public function index(ExpertRepository $expertRepository, UserRepository $userRepository): Response
     {
-
-        // $userExpert = $userRepository->findByExpert();
-        // var_dump($userExpert);
+        $experts = [];
+        $experts2 = [];
+        $users = $userRepository->findAll();
+       for ($i=0; $i < sizeof($users) ; $i++) { 
+    
+        if ($users[$i]->getRoles()[0] == 'ROLE_EXPERT'){
+            $expert2 = $expertRepository->findBy(['id' => $users[$i]->getExpert()]);
+            $expert = $userRepository->findBy(['id' => $users[$i]->getId()]);
+            array_push($experts , $expert);
+            array_push($experts2 , $expert2);
+       }
+    }
+ 
 
         return $this->render('admin/expert/index.html.twig', [
-            'experts' => $expertRepository->findAll(),
-            'users' => $userRepository->findBy(['roles' =>  ["ROLE_EXPERT"]]),
+            'users' => $userRepository->findAll(),
+            'experts' => $experts,
+            'experts2' => $experts2,
         ]);
     }
 
